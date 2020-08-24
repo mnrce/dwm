@@ -2008,6 +2008,7 @@ togglescratch(const Arg *arg)
 	for (c = selmon->clients; c && !(found = c->tags & scratchtag); c = c->next);
 	if (found) {
 		unsigned int newtagset = selmon->tagset[selmon->seltags] ^ scratchtag;
+		if (c->isfullscreen) setfullscreen(c, 0);
 		if (newtagset) {
 			selmon->tagset[selmon->seltags] = newtagset;
 			focus(NULL);
