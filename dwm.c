@@ -2580,8 +2580,8 @@ updatebarpos(Monitor *m)
 		m->by = -bh;
 	}
 
-	for (c = m->clients; c; c = c->next){
-	  if (ISVISIBLE(c)) ++nvis;
+	for (c = m->clients; c; c = c->next) {
+	  if (ISVISIBLE(c) && !c->isfloating) ++nvis;
 	}
 
 	if (m->showtab == showtab_always
